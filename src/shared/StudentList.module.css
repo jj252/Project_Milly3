@@ -1,0 +1,60 @@
+.container{
+    background-image: url('../assets/stage.jpg');
+    background-repeat: no-repeat;
+    background-size: 1500px;
+    height: 900px;
+}
+
+.question1{
+    position:absolute;
+    left:550px;
+    top: 300px;
+    width: 400px;
+    color: black;
+    background-color: aquamarine;
+}
+
+.answer1{
+    position:absolute;
+    left:300px;
+    top: 400px;
+    width: 400px;
+    color: black;
+    background-color: aquamarine;
+}
+
+.answer2{
+    position:absolute;
+    left:300px;
+    top: 450px;
+    width: 400px;
+    color: black;
+    background-color: aquamarine;
+}
+
+.answer3{
+    position:absolute;
+    left:700px;
+    top: 400px;
+    width: 400px;
+    color: black;
+    background-color: aquamarine;
+}
+
+.answer4{
+    position:absolute;
+    left:700px;
+    top: 450px;
+    width: 400px;
+    color: black;
+    background-color: aquamarine;
+}
+
+.sideBar{
+    position: absolute;
+    top: 50px;
+    right: 410px;
+    width: 150px;
+    height:50%;
+}
+
