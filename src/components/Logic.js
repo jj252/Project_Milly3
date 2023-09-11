@@ -5,6 +5,7 @@ import { SelectAllQuestions } from './Navigation';
 import Questions from '../components/Questions';
 import { AnswersA,AnswersB,AnswersC,AnswersD } from "./Answers";
 import TheSideBar from './TheSideBar';
+import Music from './Music';
 
 const Logic = () =>{
     console.log('im in');
@@ -58,7 +59,8 @@ const Logic = () =>{
     <button className={style.answer2} onClick={(event) => {getAnswers('b',questionNumber,event)} }><AnswersB  prop={question_new} prop2={questionNumber}></AnswersB></button>
     <button className={style.answer3} onClick={(event) => {getAnswers('c',questionNumber,event)} }><AnswersC  prop={question_new} prop2={questionNumber}></AnswersC></button>
     <button className={style.answer4} onClick={(event) => {getAnswers('d',questionNumber,event)} }><AnswersD  prop={question_new} prop2={questionNumber}></AnswersD></button>
-    <div className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber}/></div>
+    <div className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber}/></div>,
+    <Music prop={bank}/>
     </>
     
     )
