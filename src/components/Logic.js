@@ -116,7 +116,7 @@ const Logic = () =>{
     }
 
     else if(gameProgress === 1){
-        
+        if(!isFifty && !askTheHost && !phoneaFriend){
         return (
         <>
         <Button className={style.question1}><Questions prop={question_new} prop2={questionNumber} /></Button>
@@ -127,10 +127,23 @@ const Logic = () =>{
         <div className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber}/></div>,
         <div className={style.my_counter}>{counter}</div>,
         <Music prop={bank}/>
-        
+                {!isFiftyUsedOnce
+                ?<div className={style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true);}}><img src={fifty_Fifty} alt='Fifty Fifty'/></div>
+                :console.log('IT\'TS WORKING')
+                }
+                {!askHostUsedOnce
+                ?<div className={style.mybutton2} onClick={() => {setaskTheHost(true);setaskHostUsedOnce(true);}}><img src={Ask_host} alt='Ask the host'/></div>
+                
+                :console.log('IT\'TS WORKING')
+                }
+                {!phoneaFriendUsedOnce
+                ?<div className={style.mybutton3} onClick={() => {setphoneaFriend(true);setphoneaFriendUsedOnce(true);}}><img src={Phone} alt='Phone a Friend'/></div>
+                
+                :console.log('IT\'TS WORKING')
+                }
             
         </>
-        )
+        )}
         
     }
     
