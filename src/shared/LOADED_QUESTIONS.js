@@ -52,7 +52,7 @@ export const LOADED_QUESTIONS = [
     {
         id: 4,
         name: 'Question5',
-        question: 'What is James Bond\'s preferred drink of choice?',
+        question: 'What is James Bonds preferred drink of choice?',
         option1: 'Vodca',
         option2: 'Martini',
         option3: 'White Wine',
@@ -64,7 +64,7 @@ export const LOADED_QUESTIONS = [
     {
         id: 5,
         name: 'Question6',
-        question: 'When Jack Nicholson improvised \“Here\’s Johnny\!\” in The Shining, he was referring to what TV show\?',
+        question: 'When Jack Nicholson improvised Heres Johnny!” in The Shining, he was referring to what TV show?',
         option1: 'Johnny Carson',
         option2: 'Saturday Night Live',
         option3: 'David Letterman',
@@ -76,7 +76,7 @@ export const LOADED_QUESTIONS = [
     {
         id: 6,
         name: 'Question6',
-        question: 'Which singer\’s real name is Stefani Joanne Angelina Germanotta?',
+        question: 'Which singers real name is Stefani Joanne Angelina Germanotta?',
         option1: 'Whitney Houston',
         option2: 'Lady Gaga',
         option3: 'Pink',
@@ -88,7 +88,7 @@ export const LOADED_QUESTIONS = [
     {
         id: 7,
         name: 'Question7',
-        question: 'What animal is known to be \‘man\’s best friend\’?',
+        question: 'What animal is known to be mans best friend?',
         option1: 'Cat',
         option2: 'Wolf',
         option3: 'Dog',

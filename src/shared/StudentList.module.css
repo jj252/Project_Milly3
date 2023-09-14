@@ -72,4 +72,21 @@
     background-image: transparent;
     
 }
+.mybutton{
+    position:absolute;
+    margin-left: 160px;
+    margin-top: -500px;
+    }
+
+.mybutton2{
+    position:absolute;
+    margin-left: 260px;
+    margin-top: -500px;
+    }
+
+.mybutton3{
+    position:absolute;
+    margin-left: 360px;
+    margin-top: -500px;
+}
 
