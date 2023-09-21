@@ -11,6 +11,7 @@ import style from '../shared/StudentList.module.css';
 
 const Music = (bank) => {
     let the_bank = bank.prop;
+    let musicOnce = bank.prop2;
     const Theme_100 = useRef(new Audio(oneThousand));
     const Theme_2000 = useRef(new Audio(twoThousand));
     const Theme_64 = useRef(new Audio(sixtyfour));
@@ -21,9 +22,10 @@ const Music = (bank) => {
 
     
 
-    if (the_bank === 100){
+    if (the_bank === 100 && musicOnce === 1){
+        console.log(musicOnce);
         return(
-            
+            <div className={style.MusicDiv} onMouseEnter={Theme_100.current.pause()}></div>,
             <div className={style.MusicDiv} onMouseEnter={Theme_100.current.play()}></div>
         )
     }

@@ -15,7 +15,7 @@ import Ask_host from '../assets/ask_host.jpg';
 import Phone from '../assets/phone.png';
 
 const Logic = () =>{
-    console.log('im in');
+    
     const [questionNumber,setQuestionNumber] = useState(1);
     const [question_new,setQuestion_new] = useState(SelectAllQuestions);
     
@@ -28,6 +28,7 @@ const Logic = () =>{
     const [askHostUsedOnce,setaskHostUsedOnce] = useState(false);
     const [phoneaFriend,setphoneaFriend] = useState(false);
     const [phoneaFriendUsedOnce,setphoneaFriendUsedOnce] = useState(false);
+    const [musicOnce,setMusicOnce] = useState(0);
 
     const [correct_ans, {stop}] = useSound(correct_Ans, {
         volume: 0.5,
@@ -36,7 +37,13 @@ const Logic = () =>{
         volume: 2,
        });
     
-  
+    //50/50 is only given one second after that it defaults back to original
+    useEffect(() => {
+        const timer = setTimeout(() => {
+        setisFifty(false);
+        }, 3000);
+        return () => clearTimeout(timer);
+        }, [isFifty]);
     //on mouse over button functionality
     const mouseOver = (event) =>{
         event.target.style.backgroundColor = 'orange';
@@ -67,7 +74,7 @@ const Logic = () =>{
     const setDigits = [100,200,300,500,1000,2000,4000,8000,16000,32000,64000,125000,250000,500000,1000000]
     
     const getAnswers = (ans,the_progress,event) => {
-        console.log('im in');
+        
         //ui_click();
         console.log(ans);
         console.log(the_progress);
@@ -78,7 +85,7 @@ const Logic = () =>{
             setBank(setDigits[(the_progress+1) -2]);
             setCounter(60);
             correct_ans();
-            
+            setMusicOnce(musicOnce+1);
             console.log(bank);
         }
         else if (ans === 'b' && ans === question_new[the_progress].ans){
@@ -87,6 +94,7 @@ const Logic = () =>{
             setBank(setDigits[(the_progress+1) -2]);
             setCounter(60);
             correct_ans();
+            setMusicOnce(musicOnce+1);
             console.log(bank);
         }
         else if (ans === 'c' && ans === question_new[the_progress].ans){
@@ -95,6 +103,7 @@ const Logic = () =>{
             setBank(setDigits[(the_progress+1) -2]);
             setCounter(60);
             correct_ans();
+            setMusicOnce(musicOnce+1);
             console.log(bank);
         }
         else if (ans === 'd' && ans === question_new[the_progress].ans){
@@ -103,6 +112,7 @@ const Logic = () =>{
             setBank(setDigits[(the_progress+1) -2]);
             setCounter(60);
             correct_ans();
+            setMusicOnce(musicOnce+1);
             console.log(bank);
         }
         else{
@@ -116,7 +126,9 @@ const Logic = () =>{
     }
 
     else if(gameProgress === 1){
+        
         if(!isFifty && !askTheHost && !phoneaFriend){
+            
         return (
         <>
         <Button className={style.question1}><Questions prop={question_new} prop2={questionNumber} /></Button>
@@ -126,7 +138,7 @@ const Logic = () =>{
         <button ref={buttonD} style={{background: 'blue', color:'white' }} className={style.answer4} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('d',questionNumber,event)} }><AnswersD  prop={question_new} prop2={questionNumber}></AnswersD></button>
         <div className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber}/></div>,
         <div className={style.my_counter}>{counter}</div>,
-        <Music prop={bank}/>
+        <Music prop={bank} prop2={musicOnce}/>
                 {!isFiftyUsedOnce
                 ?<div className={style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true);}}><img src={fifty_Fifty} alt='Fifty Fifty'/></div>
                 :console.log('IT\'TS WORKING')
@@ -144,9 +156,72 @@ const Logic = () =>{
             
         </>
         )}
-        
-    }
-    
+        else if(isFifty){
+            //hit.current.play();
+
+            if(question_new[questionNumber].option1 === question_new[questionNumber].correct  ){
+                return (
+                <>
+                <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber);} }className={style.answer1} color="info" ><AnswersA prop={question_new} prop2={questionNumber} /></button>,
+                <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber);} }className={style.answer2} color="info" ><AnswersB prop={question_new} prop2={questionNumber} /></button>
+                </>
+                )
+            }
+            else if(question_new[questionNumber].option2 === question_new[questionNumber].correct ){
+                return (
+                    <>
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber);} }className={style.answer2} color="info" ><AnswersA prop={question_new} prop2={questionNumber} /></button>,
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber);} }className={style.answer4} color="info" ><AnswersB prop={question_new} prop2={questionNumber} /></button>
+                    </>
+                    )
+            }
+            else if(question_new[questionNumber].option3 === question_new[questionNumber].correct ){
+                return (
+                    <>
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber);} } className={style.answer1} color="info" ><AnswersA prop={question_new} prop2={questionNumber} /></button>,
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('c',questionNumber);} } className={style.answer3} color="info" ><AnswersC prop={question_new} prop2={questionNumber} /></button>
+                    
+                    </>
+                    )
+            }
+            else if(question_new[questionNumber].option4 === question_new[questionNumber].correct ){
+                return (
+                    <>
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber);} }className={style.answer2} color="info" ><AnswersD prop={question_new} prop2={questionNumber} /></button>,
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber);} }className={style.answer4} color="info" ><AnswersB prop={question_new} prop2={questionNumber} /></button>
+                    </>
+                    )
+            }
+        }
+        if(askTheHost){
+            //hit.current.play();
+            const timer2 = setTimeout(() => {
+                setaskTheHost(false);
+                
+                setGameProgress(1);
+            }, 3000);
+            
+            return (
+            <>
+            <div className={style.theHost}><img src={Ask_host}></img> The Host Says The Answer Is: {question_new[questionNumber].host}</div>
+            </>
+            )
+        }
+        if(phoneaFriend){
+            //hit.current.play();
+            const timer2 = setTimeout(() => {
+                setphoneaFriend(false);
+                setGameProgress(1);
+                
+            }, 3000);
+            
+            return (
+            <>
+            <div className={style.theHost}><img src={Phone}></img> Your Friend Say's The Answer Is: {question_new[questionNumber].host}</div>
+            </>
+            )
+        }
+            }
 }
 
 export default Logic;

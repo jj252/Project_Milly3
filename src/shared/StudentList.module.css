@@ -89,4 +89,12 @@
     left: 360px;
     
 }
+.theHost{
+    position:absolute;
+    top:50px;
+    left:120px;
+    color: aliceblue;
+    animation: .4s rollout2;
+    
+}
 
