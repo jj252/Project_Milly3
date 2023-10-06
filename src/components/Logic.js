@@ -29,7 +29,7 @@ const Logic = () =>{
     const [phoneaFriend,setphoneaFriend] = useState(false);
     const [phoneaFriendUsedOnce,setphoneaFriendUsedOnce] = useState(false);
     const [musicOnce,setMusicOnce] = useState(0);
-
+    
     const [correct_ans, {stop}] = useSound(correct_Ans, {
         volume: 0.5,
        });
@@ -198,7 +198,7 @@ const Logic = () =>{
             const timer2 = setTimeout(() => {
                 setaskTheHost(false);
                 
-                setGameProgress(1);
+                
             }, 3000);
             
             return (
@@ -211,7 +211,7 @@ const Logic = () =>{
             //hit.current.play();
             const timer2 = setTimeout(() => {
                 setphoneaFriend(false);
-                setGameProgress(1);
+                
                 
             }, 3000);
             
